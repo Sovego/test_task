@@ -16,7 +16,7 @@ class FinanceApp:
         """
         The manager attribute is an instance of the FinanceManager class. It is used to manage finance records.
         """
-    def add_record_ui(self):
+    def __add_record_ui(self):
         """
         Handles the user interface for adding a new finance record.
 
@@ -39,7 +39,7 @@ class FinanceApp:
         except Exception as e:
             print(f"Ошибка: {e}")
 
-    def edit_record_ui(self):
+    def __edit_record_ui(self):
         """
         Handles the user interface for editing an existing finance record.
 
@@ -62,7 +62,7 @@ class FinanceApp:
         success, message = self.manager.edit_record(date, new_type, new_amount, new_description)
         print(message)
 
-    def search_records_ui(self):
+    def __search_records_ui(self):
         """
         Handles the user interface for searching finance records.
 
@@ -101,7 +101,7 @@ class FinanceApp:
         except Exception as e:
             print(f"Произошла ошибка: {e}")
 
-    def display_balance_ui(self):
+    def __display_balance_ui(self):
         """
         Handles the user interface for displaying the balance.
 
@@ -126,10 +126,10 @@ class FinanceApp:
         If an error occurs during the execution of the action, an error message is printed to the console.
         """
         actions = {
-            'b': self.display_balance_ui,
-            'a': self.add_record_ui,
-            'e': self.edit_record_ui,
-            's': self.search_records_ui,
+            'b': self.__display_balance_ui,
+            'a': self.__add_record_ui,
+            'e': self.__edit_record_ui,
+            's': self.__search_records_ui,
         }
         while True:
             action = input("Выберите действие: Вывод баланса (b), Добавление записи (a), Редактирование записи (e), "

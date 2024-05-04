@@ -109,7 +109,7 @@ class FinanceManager:
             print(f"Error when adding record: {e}")
             return False  # Error when adding
 
-    def update_records(self, records):
+    def __update_records(self, records):
         """
         Updates the records in the file.
 
@@ -194,7 +194,7 @@ class FinanceManager:
         if not updated:
             return False, "Record for update not found."
 
-        if self.update_records(records):
+        if self.__update_records(records):
             return True, "Record successfully updated."
         else:
             return False, "Error when updating file."
