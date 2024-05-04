@@ -1,5 +1,6 @@
 import csv
 
+from enums import RecordType
 from finance_record import FinanceRecord
 
 
@@ -72,6 +73,7 @@ class FinanceManager:
             if date:
                 records = [record for record in records if record.date == date]
             if record_type:
+                record_type = RecordType(record_type)
                 records = [record for record in records if record.record_type == record_type]
             if amount is not None:
                 amount = int(amount)
@@ -101,7 +103,7 @@ class FinanceManager:
         try:
             with open(self.filename, 'a', newline='') as file:
                 writer = csv.writer(file)
-                writer.writerow([record.date, record.record_type, record.amount, record.description])
+                writer.writerow([record.date, record.record_type.value, record.amount, record.description])
             return True  # Successfully added
         except Exception as e:
             print(f"Error when adding record: {e}")
@@ -144,8 +146,8 @@ class FinanceManager:
         if not success:
             return 0, 0, 0
         try:
-            income = sum(record.amount for record in records if record.record_type.lower() == 'доход')
-            expense = sum(record.amount for record in records if record.record_type.lower() == 'расход')
+            income = sum(record.amount for record in records if record.record_type == RecordType.INCOME)
+            expense = sum(record.amount for record in records if record.record_type == RecordType.EXPENSE)
             return income, expense, income - expense
         except Exception as e:
             print(f"Error when calculating balance: {e}")
@@ -179,7 +181,7 @@ class FinanceManager:
         for record in records:
             if record.date == date:
                 if new_type:
-                    record.record_type = new_type
+                    record.record_type = RecordType(new_type)
                 if new_amount is not None:
                     try:
                         record.amount = int(new_amount)

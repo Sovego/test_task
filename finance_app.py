@@ -93,7 +93,7 @@ class FinanceApp:
                 print("Найденные записи:")
                 for record in found_records:
                     print(f"Дата: {record.date}")
-                    print(f"Категория: {record.record_type}")
+                    print(f"Категория: {record.record_type.value}")
                     print(f"Сумма: {record.amount}")
                     print(f"Описание: {record.description}\n")
             else:

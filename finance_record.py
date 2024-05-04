@@ -1,3 +1,6 @@
+from enums import RecordType
+
+
 class FinanceRecord:
     """
     A class used to represent a Finance Record.
@@ -23,7 +26,7 @@ class FinanceRecord:
         """
         The date attribute is a string representing the date of the finance record.
         """
-        self.record_type = record_type
+        self.record_type = RecordType(record_type)
         """
         The record_type attribute is a string representing the type of the finance record.
         """
