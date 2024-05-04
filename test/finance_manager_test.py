@@ -43,7 +43,7 @@ class TestFinanceManager(unittest.TestCase):
         success, records = self.finance_manager.find_records(record_type="доход")
         self.assertTrue(success)
         self.assertEqual(len(records), 1)
-        self.assertEqual(records[0].record_type, "доход")
+        self.assertEqual(records[0].record_type.value, "доход")
 
     @patch('builtins.open', new_callable=mock_open,
            read_data="2022-01-01,доход,1000,Salary\n2022-01-02,расход,500,Groceries")
