@@ -1,4 +1,4 @@
-from FinanceApp import FinanceApp
+from finance_app import FinanceApp
 
 if __name__ == "__main__":
     """

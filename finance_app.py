@@ -1,5 +1,5 @@
-from FinanceManager import FinanceManager
-from FinanceRecord import FinanceRecord
+from finance_manager import FinanceManager
+from finance_record import FinanceRecord
 
 
 class FinanceApp:

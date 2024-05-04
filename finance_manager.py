@@ -1,6 +1,6 @@
 import csv
 
-from FinanceRecord import FinanceRecord
+from finance_record import FinanceRecord
 
 
 class FinanceManager:
